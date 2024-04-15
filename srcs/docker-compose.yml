@@ -1,0 +1,75 @@
+version: '3.8'
+services:
+  # Mariadb DataBase
+  mariadb:
+    build: ./requirements/mariadb/
+    image: mariadb
+    container_name: mariadb
+    restart: always
+    volumes:
+      - vl_mariadb:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - mben-salNetwork
+    env_file:
+      - .env
+  
+  # Nginx Web Server
+  nginx:
+    build: ./requirements/nginx/
+    image: nginx
+    container_name: nginx
+    restart: always
+    depends_on:
+      - wordpress
+    volumes:
+      - vl_wp:/var/www/html/
+    ports:
+      - "443:443"
+    networks:
+      - mben-salNetwork
+    env_file:
+      - .env
+  # Wordpress
+  wordpress:
+    build: ./requirements/wordpress/
+    image: wordpress
+    container_name: wordpress
+    restart: always
+    depends_on:
+      - mariadb
+    volumes:
+      - vl_wp:/var/www/html/
+    ports:
+      - "9000:9000"
+    networks:
+      - mben-salNetwork
+    env_file:
+      - .env
+  #adminer
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    depends_on:
+      - mariadb
+    volumes:
+      - vl_mariadb:/var/lib/mysql
+    ports:
+      - "8080:8080"
+    networks:
+      - mben-salNetwork
+    env_file:
+      - .env
+
+networks:
+  mben-salNetwork:
+
+volumes: 
+  vl_mariadb:
+  vl_wp:
+    driver_opts:
+      type: none
+      o: bind
+      device: /Users/mben-sal/data/
