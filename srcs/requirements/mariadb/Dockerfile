@@ -2,7 +2,7 @@ FROM alpine:3.12.0
 
 # Installation de MariaDB et du client MariaDB en une seule instruction
 RUN apk update && \
-    apk add --no-cache mariadb mariadb-client
+    apk add --no-cache mariadb mariadb-client 
 RUN apk add openrc
 RUN openrc
 RUN touch /run/openrc/softlevel
@@ -14,4 +14,5 @@ RUN chmod +x /script.sh
 # Définition de l'entrée par défaut pour exécuter le script
 ENTRYPOINT ["/script.sh"]
 
-CMD [ "tail", "-f", "/dev/null" ]
+# CMD [ "tail", "-f", "/dev/null" ]
+CMD ["apache2-foreground"]
