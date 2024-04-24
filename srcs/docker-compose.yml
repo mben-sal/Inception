@@ -22,7 +22,7 @@ services:
     container_name: nginx
     restart: always
     depends_on:
-      - wordpress
+      - mariadb
     volumes:
       - vl_wp:/var/www/html/
     ports:
@@ -38,7 +38,7 @@ services:
     container_name: wordpress
     restart: always
     depends_on:
-      - mariadb
+      - nginx
     volumes:
       - vl_wp:/var/www/html/
     ports:
