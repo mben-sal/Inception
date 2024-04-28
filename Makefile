@@ -6,7 +6,7 @@
 #    By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 18:14:58 by mben-sal          #+#    #+#              #
-#    Updated: 2024/04/24 20:03:57 by mben-sal         ###   ########.fr        #
+#    Updated: 2024/04/28 10:42:49 by mben-sal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,10 +81,10 @@ down:
 	@docker-compose -f ./srcs/docker-compose.yml down
 
 clean: down
-	@docker image rmi -f nginx wordpress mariadb adminer ftp redis website cadvisor
+	@docker image rmi -f nginx wordpress mariadb adminer
 
 fclean: clean
-	@rm -rf /home/mben-sal/data/wordpress
+	@rm -rf /Users/mben-sal/data/*
 	@docker volume rm srcs_vl_mariadb srcs_vl_wp
 
 re: fclean all

@@ -24,7 +24,7 @@ la deference entre conteneur et vm
 -> Dockerfile = est un ficher texte qui contient une serie  dinstruction utilisees 
 # dockerfile :
 Un Dockerfile est un fichier de configuration utilisé pour créer une image Docker 
-= > FROM :  Par exemple, FROM debian:buster indique que votre image sera construite à partir de l'image Debian Buster
+= > FROM :  Par exemple, FROM debian:buster indique que votre image sera construite à partir de l'image Debian Buster 
 
 = > RUN : permet d'exécuter des commandes dans l'image Docker en cours de construction.
 
@@ -37,6 +37,8 @@ Un Dockerfile est un fichier de configuration utilisé pour créer une image Doc
 = > EXPOSE : L'instruction EXPOSE indique les ports sur lesquels l'application en cours d'exécution dans le conteneur Docker écoute 
 
 = > CMD : définit la commande par défaut à exécuter lorsqu'un conteneur basé sur cette image est démarré 
+
+= > ENTRYPOINT : Cette commande ou ce script sera le point d'entrée principal du conteneur.
 
 # adminer :
 	Adminer est une application web open source, un gestionnaire de base de données qui permet aux administrateurs de bases de données de gérer leurs bases de données via une interface utilisateur conviviale et intuitive
@@ -161,8 +163,8 @@ Docker Compose est un outil qui permet de définir et de gérer des applications
 * volume : Un volume Docker est un moyen de stocker des données persistantes utilisées par les conteneurs Docker. 
 
 
+Apache : est un serveur web http / mysql : est un gestion de base de donner / php : est langage de script
 
-la virtualisation lourde et la virtualisation legere 
 
 
 

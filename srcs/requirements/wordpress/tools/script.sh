@@ -15,4 +15,5 @@ wp core install --url=https://localhost --title=${WP_TITLE} --admin_user=${WP_AD
 wp user create ${WP_USER} mben-sal@gmail.com --user_pass=${WP_PASSWORD} --allow-root
 /usr/sbin/php-fpm7.3 -F 
 
+# Exécuter la commande ou le script passé en argument avec tous les arguments
 exec "$@"
