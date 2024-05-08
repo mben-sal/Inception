@@ -160,15 +160,20 @@ CMD ["echo", "Hello World 2"]
 
 Docker Compose est un outil qui permet de définir et de gérer des applications multi-conteneurs Docker.
 * Network (Réseau) : un réseau est un moyen de connecter des conteneurs entre eux pour qu'ils puissent communiquer. Par défaut, Docker crée un réseau isolé pour chaque application ou chaque conteneur.
+
+isolation des services ,
 * volume : Un volume Docker est un moyen de stocker des données persistantes utilisées par les conteneurs Docker. 
 
 
 Apache : est un serveur web http / mysql : est un gestion de base de donner / php : est langage de script
 
+# la difference entre HTTPS et HTTP ?
+
+- HTTP : Les donnees sont transferes en texte clair  (par contre ) HTTPS : elles sont chiffrees securise
 
 
-
-
+- network :
+les container communique dans meme reseau qui me presente plusieurs avantege comme isolation , la facilite de configuration , la securite 
 
 
 https://github.com/zakarm/Inception 
@@ -181,3 +186,18 @@ Comment fonctionnent Docker et Docker Compose ?
 La différence entre une image Docker utilisée avec Docker Compose et sans Docker Compose ? 
 L'avantage de Docker par rapport aux VM ?
 La pertinence de la structure des répertoires requise pour ce projet (un exemple est fourni dans le fichier PDF du sujet).? 
+
+
+# pour enter dans un container de mariadb et check databases 
+	- ( commande ) ===== >                             mysql -p 
+	- pour enter specifier par exemple incetion ====>  user inception 
+	- suite  ===== >                                   show tables
+	- pour selection par exemple quells data ==== >    SELECT * FROM wp_users 
+# pour setup adminer 
+
+	- apres de setup la recette de adminer fais install 
+		* apt-get update
+		* apt-get install -y php
+		* php -S 0.0.0.0:8060 -t /var/www/html
+
+
