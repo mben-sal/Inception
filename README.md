@@ -201,3 +201,14 @@ La pertinence de la structure des répertoires requise pour ce projet (un exempl
 		* php -S 0.0.0.0:8060 -t /var/www/html
 
 
+scp -r <mon de folder>  mben-sal@10.13.100.51:<path dans virtual machine >
+
+
+
+
+- download ubuntu image iso
+- setup the virtual machine with ubuntu
+- install vim openssh-server make net-tools
+- install docker from https://docs.docker.com/engine/install/ubuntu/
+- connect using ssh from the terminal
+- copy the folder from the machine to vm using scp

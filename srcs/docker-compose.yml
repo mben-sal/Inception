@@ -1,4 +1,4 @@
-version: '3.8'
+# version: '3.8'
 services:
   # Mariadb DataBase
   mariadb:
@@ -7,9 +7,9 @@ services:
     container_name: mariadb
     restart: always
     volumes:
-      - vl_mariadb:/var/lib/mysql
-    ports:
-      - "3306:3306"
+      - vl_wp:/var/www/html/
+    # ports:
+    #   - "3306:3306"
     networks:
       - mben-salNetwork
     env_file:
@@ -41,8 +41,8 @@ services:
       - nginx
     volumes:
       - vl_wp:/var/www/html/
-    ports:
-      - "9000:9000"
+    # ports:
+    #   - "9000:9000"
     networks:
       - mben-salNetwork
     env_file:
@@ -68,8 +68,12 @@ networks:
 
 volumes: 
   vl_mariadb:
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/mben-sal/data/
   vl_wp:
     driver_opts:
       type: none
       o: bind
-      device: /Users/mben-sal/data/
+      device: /home/mben-sal/data/

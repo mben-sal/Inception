@@ -6,10 +6,9 @@
 #    By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 18:14:58 by mben-sal          #+#    #+#              #
-#    Updated: 2024/05/06 18:19:27 by mben-sal         ###   ########.fr        #
+#    Updated: 2024/05/11 11:27:56 by mben-sal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 bold = $(shell tput bold)
 
@@ -21,25 +20,31 @@ credit:
 	@echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 build:
-	@docker-compose -f ./srcs/docker-compose.yml build
+	@docker compose -f ./srcs/docker-compose.yml build
 
 up:
-	@docker-compose -f ./srcs/docker-compose.yml up --build
+	@docker compose -f ./srcs/docker-compose.yml up --build || echo "$(bold)Error: Docker compose up failed."
 
 stop:
-	@docker-compose -f ./srcs/docker-compose.yml stop
+	@docker compose -f ./srcs/docker-compose.yml stop
 
 start:
-	@docker-compose -f ./srcs/docker-compose.yml start
+	@docker compose -f ./srcs/docker-compose.yml start
 
 down:
-	@docker-compose -f ./srcs/docker-compose.yml down
+	@docker compose -f ./srcs/docker-compose.yml down
 
 clean: down
-	@docker image rmi -f nginx wordpress mariadb adminer
+	@docker image rm -f nginx:latest || true
+	@docker image rm -f wordpress:latest || true
+	@docker image rm -f mariadb:latest || true
+	@docker image rm -f adminer:latest || true
+	@docker volume rm srcs_vl_mariadb || true
+	@docker volume rm srcs_vl_wp || true
 
 fclean: clean
-	@rm -rf /Users/mben-sal/data/*
-	@docker volume rm srcs_vl_mariadb srcs_vl_wp
+	@sudo rm -rf /home/mben-sal/data/*
+	# @docker volume rm srcs_vl_mariadb srcs_vl_wp
+	@sudo rm -f /home/mben-sal/data/index.nginx-debian.html
 
 re: fclean all
