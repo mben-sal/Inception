@@ -1,29 +1,57 @@
 # Inception
+	c est un projet de 42 school qui lui donner un plusieurs information a propos de dommaine de docker et container dans ce projet nous allons cree wordpress site web avec un serveur nginx et data base mariadb .... mais avant tous c est obliges de bien comprendre plusieurs outiles
 
-VM : est une émulation d'un ordinateur physique , Elle permet d'exécuter plusieurs systèmes d'exploitation sur une seule machine physique en utilisant un logiciel appelé hyperviseur par contre Docker est une plateforme open-source qui permet de créer, déployer et gérer des applications dans des conteneurs/ 
-VM ET DOCKER soient toutes deux utilisees pour virtualisation et l'isolation , de maniere differente 
-la deference entre conteneur et vm 
-	* conteneur ne reservez que les ressources necessaires , demarrez rapidement , ne besion pas des virtualisation des ressource mais seulement de isolation 
+# c'est quoi un VM , Docker et quelle la defirrence entre deux 
+
+-> VM : 
+	 est une émulation d'un ordinateur physique , Elle permet d'exécuter plusieurs systèmes d'exploitation sur une seule machine physique en utilisant un logiciel appelé hyperviseur par contre Docker est une plateforme open-source qui permet de créer, déployer et gérer des applications dans des conteneurs
+
+->  Docker :	
+	  est un amelioration de lxc (lunix container ) commence comme une surcouche de lxc 
+	Docker est une plateforme open-source qui permet de créer, déployer et gérer des applications dans des conteneurs et Les conteneurs sont des environnements logiciels légers et autonomes qui contiennent tout ce dont une application a besoin pour s'exécuter
+- > VM ET DOCKER soient toutes deux utilisees pour virtualisation et l'isolation , de maniere differente 
+
+En parle maintenant de Docker deja connu que le Docker est une plateforme open-source (creer gerer et deployer des application dans un conteneurs )
+
+#comment travail un docker et c est quoi un container ?
+
+voila un image qui resume le travail dans docker 
+
+(./images/0_ktslXG-epHCuKj-5.png )
+
+# namespace :
+
+les namespaces sont des mécanismes qui permettent d'isoler et de séparer les ressources système entre les différents conteneurs, assurant ainsi une meilleure gestion des ressources et une isolation sécurisée.
+
+# containerd :
+containerd est un runtime de conteneurs développé par Docker qui gère le cycle de vie d’un conteneur sur une machine physique ou virtuelle (c’est-à-dire un hôte). Il crée, lance, arrête et supprime les conteneurs
+
+- download ubuntu image iso
+- setup the virtual machine with ubuntu
+- install vim openssh-server make net-tools
+- install docker from https://docs.docker.com/engine/install/ubuntu/
+- connect using ssh from the terminal
+- copy the folder from the machine to vm using scp
+en resume 
+* containerd == > runtime de conteneurs (il cree , lance, arrete et supprimer les conteneurs )
+
+* namespace == > sont des mecanismes de separation des ressources systeme entre les deffirence conteneurs ,
+
+* cgroupe == > c est mecanisme de controle et limiter les ressources systeme telle que le processe la memoire le stockage ..
+
+grace a docker en peux execute plusieurs containers ...
+# c'est quoi un container ?
+
+- container : est un processe qui partager les ressources directement avec hote, demarrez rapidement, par contre VM qui reserver un espace memoire et RAM perde bcp des espaces sans etulise pour cette reson le container plus pratique que VM ...
+
 # pour quoi en etulise un conteneurs
 	Les conteneurs offrent un environnement isolé pour exécuter des applications , exécutés sur n'importe quelle plateforme comme un ordinateur portable, un serveur cloud ou un centre de données. Les conteneurs partagent les ressources du système hôte 
 
+Maintenant en passe comment pratique ! mais avant tous j'ai donner quelle definition des outiles 
+# dockerfile 
 
--> C est quoi Docker ? 	
-	 docker est un amelioration de lxc (lunix container ) commence comme une surcouche de lxc 
-	Docker est une plateforme open-source qui permet de créer, déployer et gérer des applications dans des conteneurs et Les conteneurs sont des environnements logiciels légers et autonomes qui contiennent tout ce dont une application a besoin pour s'exécuter
+Un Dockerfile est un fichier de configuration utilisé pour créer une image Docker dans un dockerfile , je preparer un recette d'un application
 
--> container : Un conteneur est une instance isolée et exécutable d'une application
-
--> Image Docker : C'est une recette qui dit à Docker comment créer votre application dans c est  un modèle de lecture seule qui contient tous les éléments nécessaires pour exécuter une application
-
--> dockerfile : est un fichier texte qui contient une série d'instructions utilisées par Docker pour créer automatiquement une image Docker
-
-=> Un registre est un logiciel permettant de partager des images avec d'autres personnes 
-
-
--> Dockerfile = est un ficher texte qui contient une serie  dinstruction utilisees 
-# dockerfile :
-Un Dockerfile est un fichier de configuration utilisé pour créer une image Docker 
 = > FROM :  Par exemple, FROM debian:buster indique que votre image sera construite à partir de l'image Debian Buster 
 
 = > RUN : permet d'exécuter des commandes dans l'image Docker en cours de construction.
@@ -40,6 +68,19 @@ Un Dockerfile est un fichier de configuration utilisé pour créer une image Doc
 
 = > ENTRYPOINT : Cette commande ou ce script sera le point d'entrée principal du conteneur.
 
+voila un image de Dockerfile
+
+(./images/image_dockerfile.png) 
+
+apres cette etape en passe de build dockerfile pour transfer d'un image 
+
+voila un images qui resume cette etape :
+
+(./images/build.png)
+
+-> Image Docker : C'est une recette qui dit à Docker comment créer votre application dans c est  un modèle de lecture seule qui contient tous les éléments nécessaires pour exécuter une application
+
+
 # adminer :
 	Adminer est une application web open source, un gestionnaire de base de données qui permet aux administrateurs de bases de données de gérer leurs bases de données via une interface utilisateur conviviale et intuitive
 * wget = est un outil puissant et polyvalent pour télécharger des fichiers à partir du Web de manière automatisée à l'aide de la ligne de commande.
@@ -52,6 +93,8 @@ est un serveur web
 
 pour start nginx = >  {/etc/nginx/sites-available#} ::  /etc/init.d/nginx start  
 
+TLS v1.2 : Une version de TLS offrant une bonne sécurité et compatibilité, largement adoptée depuis 2008.
+TLS v1.3 : La version la plus récente, offrant une sécurité renforcée, de meilleures performances, et une simplification du protocole.
 
 # mariadb : 
 est un système de gestion de base de données , qui est largement compatible avec MySQL  
@@ -176,8 +219,6 @@ Apache : est un serveur web http / mysql : est un gestion de base de donner / ph
 les container communique dans meme reseau qui me presente plusieurs avantege comme isolation , la facilite de configuration , la securite 
 
 
-https://github.com/zakarm/Inception 
-
 https://www.youtube.com/watch?v=sn6PlRf-UHk
 
 les points pour evulations
@@ -204,11 +245,20 @@ La pertinence de la structure des répertoires requise pour ce projet (un exempl
 scp -r <mon de folder>  mben-sal@10.13.100.51:<path dans virtual machine >
 
 
+deux documentation pour lires 
+- https://devopssec.fr/article/cest-quoi-un-conteneur#:~:text=Les%20namespaces%20(ou%20%22espaces%20de,soit%20au%20courant%20des%20limitations.
+
+- https://harsh05.medium.com/understanding-namespaces-in-docker-0bbcf7697775 
 
 
-- download ubuntu image iso
-- setup the virtual machine with ubuntu
-- install vim openssh-server make net-tools
-- install docker from https://docs.docker.com/engine/install/ubuntu/
-- connect using ssh from the terminal
-- copy the folder from the machine to vm using scp
+* containerd == > runtime de conteneurs (il cree , lance, arrete et supprimer les conteneurs )
+
+* namespace == > sont des mecanismes de separation des ressources systeme entre les deffirence conteneurs ,
+
+* cgroupe == > c est mecanisme de controle et limiter les ressources systeme telle que le processe la memoire le stockage ...
+
+0_ktslXG-epHCuKj-5.png 
+
+
+scp -r push_inception mben-sal@10.13.100.73:/home/mben-sal/Bureau
+
