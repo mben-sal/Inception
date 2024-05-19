@@ -1,5 +1,5 @@
 # Inception
-	c est un projet de 42 school qui lui donner un plusieurs information a propos de dommaine de docker et container dans ce projet nous allons cree wordpress site web avec un serveur nginx et data base mariadb .... mais avant tous c est obliges de bien comprendre plusieurs outiles
+c est un projet de 42 school qui lui donner un plusieurs information a propos de dommaine de docker et container dans ce projet nous allons cree wordpress site web avec un serveur nginx et data base mariadb .... mais avant tous c est obliges de bien comprendre plusieurs outiles
 
 # c'est quoi un VM , Docker et quelle la defirrence entre deux 
 
