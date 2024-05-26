@@ -1,5 +1,4 @@
-# Utilisation de l'image officielle PHP avec Apache
-FROM debian:buster
+FROM debian:bullseye
 
 WORKDIR /var/www/html/adminer
 

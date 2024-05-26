@@ -1,5 +1,5 @@
 # Inception
-c est un projet de 42 school qui lui donner un plusieurs information a propos de dommaine de docker et container dans ce projet nous allons cree wordpress site web avec un serveur nginx et data base mariadb .... mais avant tous c est obliges de bien comprendre plusieurs outiles
+	c est un projet de 42 school qui lui donner un plusieurs information a propos de dommaine de docker et container dans ce projet nous allons cree wordpress site web avec un serveur nginx et data base mariadb .... mais avant tous c est obliges de bien comprendre plusieurs outiles
 
 # c'est quoi un VM , Docker et quelle la defirrence entre deux 
 
@@ -262,3 +262,16 @@ deux documentation pour lires
 
 scp -r push_inception mben-sal@10.13.100.73:/home/mben-sal/Bureau
 
+
+
+=  >  point fiche de correction 
+
+-  Examinez le Makefile , les scripts  (--link)
+
+-  La pertinence de la structure des répertoires requise pour ce projet (un exemple est fourni dans le fichier PDF du sujet).
+
+- La différence entre une image Docker utilisée avec Docker Compose et sans Docker Compose
+
+- une explication simple de docker-network 
+
+- Connectez-vous avec le compte administrateur pour accéder au tableau de bord d'administration. Le nom d'utilisateur Admin ne doit pas inclure « admin » ou « Admin » (par exemple, admin, administrateur, Admin-login, admin-123, etc.). 

@@ -7,7 +7,7 @@ services:
     container_name: mariadb
     restart: always
     volumes:
-      - vl_wp:/var/www/html/
+      - vl_mariadb:/var/www/html/
     # ports:
     #   - "3306:3306"
     networks:
