@@ -7,7 +7,7 @@
 
 ## 📋 Description
 
-Inception est un projet de l'École 42 qui consiste à créer une infrastructure complète en utilisant Docker. L'objectif est de mettre en place plusieurs services dans des conteneurs séparés et de les orchestrer avec Docker Compose.
+Inception est un projet  qui consiste à créer une infrastructure complète en utilisant Docker. L'objectif est de mettre en place plusieurs services dans des conteneurs séparés et de les orchestrer avec Docker Compose.
 
 ## 🏗️ Architecture
 
